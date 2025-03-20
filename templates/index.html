@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="dashboard">
+    <h1>Sistema de Gestão de Suinocultura</h1>
+    
+    <div class="cards">
+        <div class="card">
+            <h2>Suínos</h2>
+            <p>Gerenciamento do plantel</p>
+            <a href="/suinos" class="btn">Acessar</a>
+        </div>
+        
+        <div class="card">
+            <h2>Reprodução</h2>
+            <p>Controle reprodutivo</p>
+            <a href="/reproducao" class="btn">Acessar</a>
+        </div>
+        
+        <div class="card">
+            <h2>Calendário</h2>
+            <p>Eventos e programação</p>
+            <a href="/calendario" class="btn">Acessar</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
