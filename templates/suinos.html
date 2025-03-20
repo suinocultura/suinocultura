@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="suinos-container">
+    <h1>Gestão de Suínos</h1>
+    
+    <div class="add-suino">
+        <h2>Adicionar Novo Suíno</h2>
+        <form id="form-suino">
+            <input type="text" name="raca" placeholder="Raça" required>
+            <input type="date" name="data_nascimento" required>
+            <input type="number" name="peso" placeholder="Peso (kg)" step="0.1" required>
+            <select name="sexo" required>
+                <option value="">Selecione o sexo</option>
+                <option value="M">Macho</option>
+                <option value="F">Fêmea</option>
+            </select>
+            <button type="submit">Adicionar</button>
+        </form>
+    </div>
+    
+    <div class="lista-suinos">
+        <h2>Plantel Atual</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Raça</th>
+                    <th>Data Nascimento</th>
+                    <th>Peso</th>
+                    <th>Sexo</th>
+                    <th>Status</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for suino in suinos %}
+                <tr>
+                    <td>{{ suino.id }}</td>
+                    <td>{{ suino.raca }}</td>
+                    <td>{{ suino.data_nascimento }}</td>
+                    <td>{{ suino.peso }}kg</td>
+                    <td>{{ suino.sexo }}</td>
+                    <td>{{ suino.status }}</td>
+                    <td>
+                        <button onclick="editarSuino({{ suino.id }})">Editar</button>
+                        <button onclick="deletarSuino({{ suino.id }})">Deletar</button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
